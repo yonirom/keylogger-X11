@@ -17,10 +17,8 @@ int main(void)
 
   if(K.xConnect(":0")) {
     K.start();
-    while (1) {
-      K.processData();
-      usleep(1000000/3);
-    }
+    K.processData();
+    usleep(1000000/3);
   }
   return 0;
 }
